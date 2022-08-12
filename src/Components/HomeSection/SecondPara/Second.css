@@ -1,0 +1,17 @@
+.one{
+    background-image: url(../../../assets/s1.jpg);
+    background-size: cover;
+    height: 60vh;
+}
+
+.two{
+    background-image: url(../../../assets/workoutbg.jpg);
+    background-size: cover;
+    height: 60vh;
+}
+
+.three{
+    background-image: url(../../../assets/nutrationbg.jpg);
+    background-size: cover;
+    height: 60vh;
+}
