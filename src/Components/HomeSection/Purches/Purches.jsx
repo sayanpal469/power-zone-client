@@ -8,16 +8,18 @@ const Purches = () => {
     const [item, setItem] = useState({})
 
     useEffect( () => {
-        const url = `http://localhost:3000/purches/${productId}`
+        const url = `http://localhost:5000/products/${productId}`
         fetch(url)
         .then(res => res.json())
         .then(data => {
-            console.log(data);
+            setItem(data)
         })
     },[])
     return (
-        <div>
-            
+        <div className='grid lg:grid-cols-2'>
+            <div>
+                <img src={item.picture} alt="" />
+            </div>
         </div>
     );
 };

@@ -4,10 +4,10 @@ import { useNavigate } from 'react-router-dom';
 
 const Product = ({product}) => {
     const navigate = useNavigate()
-    const {picture, price, id} = product
+    const {picture, price, _id} = product
 
     const buyProducts = () => {
-        navigate(`/purches/${id}`)
+        navigate(`/purches/${_id}`)
     }
     return (
         <div class="card max-w-lg bg-base-100 shadow-xl">
