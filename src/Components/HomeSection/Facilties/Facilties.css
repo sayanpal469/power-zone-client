@@ -1,3 +1,10 @@
 .f:hover .logo{
     color: white;
+    transform:rotate(360deg);
+    transition: 1s;
+}
+
+.f{
+    border-radius:3%;
+    transition: 0.3s;
 }
