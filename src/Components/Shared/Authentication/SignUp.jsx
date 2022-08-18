@@ -1,11 +1,51 @@
-import React from 'react';
-import { Link } from 'react-router-dom'
+import React, { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom'
 import { FcGoogle } from 'react-icons/fc';
-import { useSignInWithGoogle } from 'react-firebase-hooks/auth';
+import { useCreateUserWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import auth from '../../../firebase.init';
+import Loading from '../Loading/Loading';
 
 const SignUp = () => {
-    const [signInWithGoogle, user, loading, error] = useSignInWithGoogle(auth);
+    const [
+        createUserWithEmailAndPassword,
+        user,
+        loading,
+        error,
+    ] = useCreateUserWithEmailAndPassword(auth);
+    const [signInWithGoogle, Guser, Gloading, Gerror] = useSignInWithGoogle(auth);
+    const [confirmPassword, setConfirmPassword] = useState('')
+    const [passError, setPassError] = useState();
+
+    const navigate = useNavigate()
+
+    if (loading || Gloading) {
+        return <Loading />
+    }
+
+    if (Guser || user) {
+        navigate('/home')
+    }
+
+    const handelConfirmPassword = (e) => {
+        setConfirmPassword(e.target.value)
+    }
+
+
+    const handelSubmit = (e) => {
+        e.preventDefault();
+        const name = e.target.name.value;
+        const email = e.target.email.value;
+        const password = e.target.password.value;
+
+        if (password < 6) {
+            setPassError('minimum 6 charecter')
+        }
+        else if (password !== confirmPassword) {
+            setPassError("Password did't match")
+        } else {
+            createUserWithEmailAndPassword(email, password);
+        }
+    }
 
 
     return (
@@ -13,26 +53,30 @@ const SignUp = () => {
             <div>
                 <img src="https://i.ibb.co/Jq01mJR/signUp.jpg" alt="" />
             </div>
-            <div class="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+            <form onSubmit={handelSubmit} class="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
                 <div class="card-body">
                     <h1 className='text-2xl font-bold text-center'>Sign Up</h1>
                     <div class="form-control">
                         <label class="label">
                             <span class="label-text">Name</span>
                         </label>
-                        <input type="text" placeholder="Name" class="input input-bordered" />
+                        <input name='name' type="text" placeholder="Name" class="input input-bordered" />
                     </div>
                     <div class="form-control">
                         <label class="label">
                             <span class="label-text">Email</span>
                         </label>
-                        <input type="text" placeholder="email" class="input input-bordered" />
+                        <input name='email' type="email" placeholder="email" class="input input-bordered" />
                     </div>
                     <div class="form-control">
                         <label class="label">
                             <span class="label-text">Password</span>
                         </label>
-                        <input type="text" placeholder="password" class="input input-bordered" />
+                        <input name='password' type="password" placeholder="password" class="input input-bordered" />
+                        <label class="label">
+                            <span class="label-text">Confirm Password</span>
+                        </label>
+                        <input onBlur={handelConfirmPassword} name='confirmPassword' type="password" placeholder="Confirm your password" class="input input-bordered" />
                         <div className='flex justify-between'>
                             <label class="label">
                                 <Link to='#' class="label-text-alt link link-hover">Already have an account?</Link>
@@ -42,8 +86,11 @@ const SignUp = () => {
                             </label>
                         </div>
                     </div>
+                    <p className='text-center text-red-500'>{passError}</p>
+                    {error && <p className='text-center text-red-500 font-bold'>{error.message}</p>}
+                    {/* {Gerror && <p className='text-center text-red-500 font-bold'>{Gerror.message}</p>} */}
                     <div class="form-control mt-6">
-                        <button class="btn btn-warning">Login</button>
+                        <button class="btn btn-warning">Sign up</button>
                     </div>
                     <div className="divider">OR</div>
                     <div class="form-control ">
@@ -52,7 +99,7 @@ const SignUp = () => {
                         </button>
                     </div>
                 </div>
-            </div>
+            </form>
         </div>
     );
 };

@@ -13,7 +13,7 @@ const Nav = () => {
 
   const menu = <>
     <li><Link to='/'>Home</Link></li>
-    <li><Link to='#'>Dashboard</Link></li>
+    { user &&  <li><Link to='/dashboard'>Dashboard</Link></li> }
     <li><Link to='#'>Blog</Link></li>
     <li>{ user ? <Link to='/signUp' onClick={logout}>Log out</Link> : <Link to='/signUp'>Sign Up</Link>}</li>
   </>
