@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { FcGoogle } from 'react-icons/fc';
 import { useCreateUserWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import auth from '../../../firebase.init';
@@ -15,16 +15,20 @@ const SignUp = () => {
     const [signInWithGoogle, Guser, Gloading, Gerror] = useSignInWithGoogle(auth);
     const [confirmPassword, setConfirmPassword] = useState('')
     const [passError, setPassError] = useState();
+    let signUpError;
 
+    const location = useLocation()
     const navigate = useNavigate()
+    const from = location.state?.from?.pathname || '/';
 
     if (loading || Gloading) {
         return <Loading />
     }
 
     if (Guser || user) {
-        navigate('/home')
+        navigate(from, {replace: true});
     }
+
 
     const handelConfirmPassword = (e) => {
         setConfirmPassword(e.target.value)
@@ -45,6 +49,11 @@ const SignUp = () => {
         } else {
             createUserWithEmailAndPassword(email, password);
         }
+    }
+
+    
+    if(error || Gerror || passError) {
+        signUpError = <p className='text-center text-red-500 font-bold'>{error?.message || Gerror?.message || passError}</p>
     }
 
 
@@ -87,8 +96,7 @@ const SignUp = () => {
                         </div>
                     </div>
                     <p className='text-center text-red-500'>{passError}</p>
-                    {error && <p className='text-center text-red-500 font-bold'>{error.message}</p>}
-                    {/* {Gerror && <p className='text-center text-red-500 font-bold'>{Gerror.message}</p>} */}
+                    {signUpError}
                     <div class="form-control mt-6">
                         <button class="btn btn-warning">Sign up</button>
                     </div>

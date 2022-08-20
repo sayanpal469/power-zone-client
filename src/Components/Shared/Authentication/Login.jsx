@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, useNavigate } from 'react-router-dom'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { FcGoogle } from 'react-icons/fc';
 import { useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import auth from '../../../firebase.init';
@@ -15,13 +15,17 @@ const Login = () => {
     const [signInWithGoogle, Guser, Gloading, Gerror] = useSignInWithGoogle(
         auth
     );
-    const navigate = useNavigate()
+    const location = useLocation();
+    const navigate = useNavigate();
+    const from = location.state?.from?.pathname || '/';
+    let loginError;
 
     if (loading || Gloading) {
         return <Loading/>
     }
+    
     if(user || Guser) {
-        navigate('/home')
+        navigate(from, {replace: true});
     }
 
     const handelSubmit = (e) => {
@@ -30,6 +34,10 @@ const Login = () => {
         const password = e.target.password.value;
         console.log(email, password)
         signInWithEmailAndPassword(email, password)
+    }
+
+    if(error || Gerror) {
+        loginError = <p className='text-center text-red-500 font-bold'>{error?.message || Gerror?.message}</p>
     }
 
     return (
@@ -60,7 +68,7 @@ const Login = () => {
                             </label>
                         </div>
                     </div>
-                    {error && <p className='text-center text-red-500 font-bold'>{error.message}</p>}
+                    { loginError }
                     <div class="form-control mt-6">
                         <button class="btn btn-warning">Login</button>
                     </div>

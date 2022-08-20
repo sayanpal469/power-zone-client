@@ -6,16 +6,17 @@ import auth from '../../../firebase.init';
 
 const Nav = () => {
   const [user, loading, error] = useAuthState(auth);
-  
+
   const logout = () => {
     signOut(auth);
   };
 
   const menu = <>
     <li><Link to='/'>Home</Link></li>
-    { user &&  <li><Link to='/dashboard'>Dashboard</Link></li> }
+    {user && <li><Link to='/dashboard'>Dashboard</Link></li>}
     <li><Link to='#'>Blog</Link></li>
-    <li>{ user ? <Link to='/signUp' onClick={logout}>Log out</Link> : <Link to='/signUp'>Sign Up</Link>}</li>
+    <li>{user ? <Link to='/signUp' onClick={logout}>Log out</Link> : <Link to='/signUp'>Sign Up</Link>}</li>
+    
   </>
   return (
     <div className='sticky top-0 z-50'>
