@@ -15,7 +15,7 @@ const Buy = () => {
         setTotalPrice(item?.price)
     }, [item])
 
-    
+
 
     const quantityPlus = () => {
         setQuantity(quantity + 1);
@@ -35,7 +35,28 @@ const Buy = () => {
     }
 
     const handelSubmit = (e) => {
-        e.preventDefault()
+        e.preventDefault();
+
+        const product = item?.name;
+        const productImg = item?.picture;
+        const price = item?.price;
+        const userName = user?.displayName;
+        const userEmail = user?.email;
+        const pinCode = e.target.pinCode.value;
+        const phone = e.target.phoneNumber.value;
+        const address = e.target.address.value;
+
+        const orderInfo = { product, productImg, price, userName, userEmail: userEmail, pinCode, phone, address, quantity, totalPrice }
+
+        const url = `http://localhost:5000/orders`;
+        
+        fetch(url, {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json',
+            }, 
+            body: JSON.stringify(orderInfo)
+        })
     }
 
     return (
@@ -53,23 +74,23 @@ const Buy = () => {
                         <input type="text" disabled value={name} placeholder="Product Name" class="input bg-base-200 rounded-none" />
                     </div>
                     <div class="form-control">
-                        <input type="text" placeholder="Pin code" class="input bg-base-200 rounded-none" />
+                        <input name='pinCode' type="text" placeholder="Pin code" class="input bg-base-200 rounded-none" />
                     </div>
                     <div class="form-control">
-                        <input type="text" placeholder="Phone Number" class="input bg-base-200 rounded-none" />
+                        <input name='phoneNumber' type="text" placeholder="Phone Number" class="input bg-base-200 rounded-none" />
                     </div>
                     <div class="form-control">
-                        <textarea type="text" placeholder="Address (Area and Street)" class="textarea bg-base-200 h-24 rounded-none" />
+                        <textarea name='address' type="text" placeholder="Address (Area and Street)" class="textarea bg-base-200 h-24 rounded-none" />
                     </div>
 
                     <div class="form-control mt-6">
-                        <button class="btn btn-warning rounded-none capitalize text-lg hover:bg-yellow-500">Place Order</button>
+                        <input type='submit' value='Place Order' class="btn btn-warning rounded-none capitalize text-lg hover:bg-yellow-500" />
                     </div>
                 </div>
             </div>
 
 
-            <div className='px-20 '>
+            <div className='px-20'>
                 <h1 className='text-center text-3xl p-10 font-semibold'>Order Summary</h1>
                 <div className='bg-white'>
                     <div className='mt-5 w-[80%] mx-auto py-5 rounded-lg flex items-center justify-between bg-amber-300 px-10'>
@@ -88,13 +109,9 @@ const Buy = () => {
                             <button onClick={quantityPlus} className='ml-3'>+</button>
                         </div>
                     </div>
-                    <div className='flex justify-between px-20'>
-                        <p className='text-center text-lg pb-10'>Delivery Fee</p>
-                        <p className='text-center text-lg pb-10'>$</p>
-                    </div>
-                    <div className='flex justify-between px-20'>
+                    <div className='flex justify-between px-20 mt-10'>
                         <p className='text-center text-lg pb-10'>Total Price</p>
-                        <p className='text-center text-lg pb-10'>${totalPrice}</p>
+                        <p className='text-center text-lg pb-10 text-red-500 font-semibold'>${totalPrice}</p>
                     </div>
                 </div>
             </div>

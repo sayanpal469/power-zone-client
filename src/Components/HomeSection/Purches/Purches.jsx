@@ -25,7 +25,7 @@ const Purches = () => {
             <div>
                 <h1 className='text-5xl mt-14'>{name}</h1>
                 <p className='mt-7 text-lg'>{description}</p>
-                <p type='text' className='text-3xl font-semibold mt-5'>${price}</p>
+                <p type='text' className='text-3xl font-semibold mt-5 '>${price}</p>
                 <div className='flex gap-5 mt-5'>
                     <button className='btn bg-orange-400 border-0 rounded-none px-6'><AiOutlineShoppingCart className='text-lg mr-1'></AiOutlineShoppingCart> Add to cart</button>
                     <button onClick={() => navigate(`/buy/${productId}`)} className='btn bg-orange-500 border-0 rounded-none px-5'><GiElectric className='text-lg'></GiElectric> Buy now</button>
