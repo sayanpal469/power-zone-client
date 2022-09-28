@@ -1,5 +1,6 @@
 import { Route, Routes } from 'react-router-dom';
 import './App.css';
+import Cart from './Components/HomeSection/Cart/Cart';
 import Home from './Components/HomeSection/Home/Home';
 import Buy from './Components/HomeSection/Purches/Buy';
 import Purches from './Components/HomeSection/Purches/Purches';
@@ -25,10 +26,12 @@ function App() {
          }></Route>
          <Route path='/buy/:productId' element={ <Buy/> }></Route>
 
-         <Route path='/dashBoard' element={ <RequireAuth><Dashboard></Dashboard></RequireAuth> }>
+         <Route path='/cart' element={ <Cart/> }></Route>
+
+         {/* <Route path='/dashBoard' element={ <RequireAuth><Dashboard></Dashboard></RequireAuth> }>
           <Route index element={ <MyProfile/> }></Route>
           <Route path='myOrders' element={ <MyOrders/> }></Route>
-         </Route>
+         </Route> */}
 
         <Route path='/login' element={ <Login/> }></Route>
         <Route path='/signUp' element={ <SignUp/> }></Route>

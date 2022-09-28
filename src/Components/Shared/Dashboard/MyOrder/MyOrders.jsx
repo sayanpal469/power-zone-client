@@ -1,39 +1,28 @@
 import React from 'react';
 import useOrders from '../../../../Hooks/useOrders';
+import MyOrderRaw from './MyOrderRaw';
 
 const MyOrders = () => {
     const [orders] = useOrders([]);
-    console.log(orders)
     return (
-        <div class="overflow-x-auto">
+        <div class="overflow-x-auto mt-5">
             <table class="table w-full">
                 <thead>
                     <tr>
                         <th></th>
+                        <th>Product</th>
                         <th>Name</th>
-                        <th>Job</th>
-                        <th>Favorite Color</th>
+                        <th>Total Price</th>
+                        <th>Quantity</th>
+                        <th>Payment</th>
+                        <th>Pending Status</th>
+                        <th>Cancel Order</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <th>1</th>
-                        <td>Cy Ganderton</td>
-                        <td>Quality Control Specialist</td>
-                        <td>Blue</td>
-                    </tr>
-                    <tr>
-                        <th>2</th>
-                        <td>Hart Hagerty</td>
-                        <td>Desktop Support Technician</td>
-                        <td>Purple</td>
-                    </tr>
-                    <tr>
-                        <th>3</th>
-                        <td>Brice Swyre</td>
-                        <td>Tax Accountant</td>
-                        <td>Red</td>
-                    </tr>
+                    {
+                        orders.map((order, index) => <MyOrderRaw index={index} key={order._id} order={order}></MyOrderRaw>)
+                    }
                 </tbody>
             </table>
         </div>

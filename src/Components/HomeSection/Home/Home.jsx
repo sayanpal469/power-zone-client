@@ -9,8 +9,8 @@ import TopBaner from '../TopBanner/TopBaner';
 const Home = () => {
     return (
         <div>
-            <TopBaner/>
             <Second/>
+            <TopBaner/>
             <Products/>
             <ThirdBanner/>
             <Facilties/>

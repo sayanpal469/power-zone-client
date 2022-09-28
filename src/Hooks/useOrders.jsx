@@ -11,7 +11,7 @@ const useOrders = () => {
         fetch(url)
         .then(res => res.json())
         .then(data => setOrders(data))
-    },[])
+    },[orders])
 
     return [orders]
 };

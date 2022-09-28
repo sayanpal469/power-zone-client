@@ -6,3 +6,12 @@
     padding-right: 25px;
     margin-left: 10px;
 }
+
+.b{
+    border-right: 1px solid black;
+}
+
+ul li{
+    font-size: 17px;
+    font-weight: 700;
+}

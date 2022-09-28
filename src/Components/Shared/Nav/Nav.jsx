@@ -3,6 +3,10 @@ import React from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { Link } from 'react-router-dom';
 import auth from '../../../firebase.init';
+import { AiOutlineUser } from 'react-icons/ai';
+import { BsHeart } from 'react-icons/bs';
+import { BsHandbag } from 'react-icons/bs';
+import './Nav.css'
 
 const Nav = () => {
   const [user, loading, error] = useAuthState(auth);
@@ -12,16 +16,17 @@ const Nav = () => {
   };
 
   const menu = <>
-    <li><Link to='/'>Home</Link></li>
-    {user && <li><Link to='/dashBoard'>Dashboard</Link></li>}
-    <li><Link to='#'>Blog</Link></li>
-    <li>{user ? <Link to='/signUp' onClick={logout}>Log out</Link> : <Link to='/signUp'>Sign Up</Link>}</li>
-    
+    <li className='b'><Link to='/'>Home</Link></li>
+    {/* {user && <li><Link to='/dashBoard'>Dashboard</Link></li>} */}
+    <li className='b'><Link to='#'>Blog</Link></li>
+    <li className='b'><Link to='#'>Contact</Link></li>
+    <li className='b'>{user ? <Link to='/signUp' onClick={logout}>Log out</Link> : <Link to='/signUp'>Sign Up</Link>}</li>
+
   </>
   return (
     <div className='sticky top-0 z-50'>
-      <div class="navbar px-12 bg-base-100">
-        <div class="navbar">
+      <div class="navbar px-12 bg-yellow-400">
+        <div class="navbar-start">
           <div class="dropdown">
             <label tabindex="0" class="btn btn-ghost lg:hidden">
               <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
@@ -30,13 +35,32 @@ const Nav = () => {
               {menu}
             </ul>
           </div>
-          <Link to='/' class="btn btn-ghost normal-case text-2xl">
-            POWER <span className='text-orange-400 ml-2'>X</span>
+          <Link to='/' class="btn btn-ghost normal-case">
+            <span className='text-4xl'>P</span><sub className='text-xl'>OWERX</sub>
           </Link>
         </div>
         <div class="navbar-center hidden lg:flex">
           <ul class="menu menu-horizontal p-0">
             {menu}
+          </ul>
+        </div>
+        <div class="navbar-end">
+          <ul className='menu menu-horizontal p-0'>
+            <li className='b'>
+              <Link to='#' className='text-2xl mr-5 '>
+                <AiOutlineUser></AiOutlineUser>
+              </Link>
+            </li>
+            <li className='b'>
+              <Link to='#' className='text-2xl mr-5'>
+                <BsHeart></BsHeart>
+              </Link>
+            </li>
+            <li className='b'>
+              <Link to='/cart' className='text-2xl '>
+                <BsHandbag></BsHandbag>
+              </Link>
+            </li>
           </ul>
         </div>
       </div>

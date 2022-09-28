@@ -6,10 +6,9 @@ import useProductDetails from '../../../Hooks/useProductDetails';
 const Buy = () => {
     const [user] = useAuthState(auth);
     const [item] = useProductDetails();
-    // const [deliveryCost, setDeliveryCost] = useState(5)
-    const [totalPrice, setTotalPrice] = useState(0)
-    const [quantity, setQuantity] = useState(1)
     const { picture, name, price } = item;
+    const [totalPrice, setTotalPrice] = useState()
+    const [quantity, setQuantity] = useState(1)
 
     useEffect(() => {
         setTotalPrice(item?.price)
@@ -18,20 +17,15 @@ const Buy = () => {
 
 
     const quantityPlus = () => {
-        setQuantity(quantity + 1);
+        setQuantity(quantity + 1)
         setTotalPrice(quantity * price)
     }
 
 
 
     const quantityMinus = () => {
-        if (quantity > 1) {
-            setQuantity(quantity - 1);
-            setTotalPrice(quantity * price)
-
-        } else {
-            alert('Decrease not possible')
-        }
+        setQuantity(quantity - 1)
+        setTotalPrice(quantity * price)
     }
 
     const handelSubmit = (e) => {
@@ -60,7 +54,7 @@ const Buy = () => {
     }
 
     return (
-        <form onSubmit={handelSubmit} className='grid lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1 px-20 py-10'>
+        <form onClick={handelSubmit} className='grid lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1 px-20 py-10'>
             <div class="card flex-shrink-0 w-full max-w-lg  bg-base-100">
                 <div class="card-body">
                     <h1 className='text-3xl mt-2 mb-5'>Delivery Details</h1>
