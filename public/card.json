@@ -2,49 +2,48 @@
     {
       "name": "Advance Tool",
       "price": 38,
-      "picture": "https://i.ibb.co/ZKzKFMg/1.webp",
-      "description": "A power tool is a tool that is actuated by an additional power source and mechanism other than the solely manual labor used with hand tools. "
+      "quantity": 1,
+      "picture": "https://i.postimg.cc/cCbPNqMM/1.png"
     },
     {
       "name": "Chain Shaw",
       "price": 17,
-      "picture": "https://i.ibb.co/wBDzTVq/2.webp",
-      "description": "A chainsaw is a power tool that can quickly cut through tree trunks and branches."
+      "quantity": 1,
+      "picture": "https://i.postimg.cc/vTjRTgtS/2.png"
     },
     {
       "name": "Electrik Drill",
       "price": 270,
-      "picture": "https://i.ibb.co/1fhx5Zq/3.webp",
-      "description": "A power drill is a tool with an electrical motor that rotates a replaceable drill bit at your choice of speeds to create a hole in a variety of materials."
+      "quantity": 1,
+      "picture": "https://i.postimg.cc/fb5rkSwj/3.png"
     },
     {
       "name": "Electrick Wires",
       "price": 31,
-      "picture": "https://i.ibb.co/932s1xn/4.webp",
-      "description": "An electrical wire is a type of conductor, which is a material that conducts electricity."
+      "quantity": 1,
+      "picture": "https://i.postimg.cc/0yvvwmqL/4.png"
     },
     {
       "name": "Grinder",
       "price": 22,
-      "picture": "https://i.ibb.co/jZCtC2Q/5.webp",
-      "description": "A grinding machine, often shortened to grinder, is one of power tools or machine tools used for grinding."
+      "quantity": 1,
+      "picture": "https://i.postimg.cc/vHFFJ9Dc/5.png"
     },
     {
       "name": "Hammer",
       "price": 36,
-      "picture": "https://i.ibb.co/sqHsCcc/6.webp",
-      "description": "A hammer is a tool, most often a hand tool, consisting of a weighted 'head' fixed to a long handle that is swung to deliver an impact to a small area of an object."
+      "quantity": 1,
+      "picture": "https://i.postimg.cc/CKdQBLd3/6.png"
     },
     {
       "name": "Safety Helmet",
       "price": 40,
-      "picture": "https://i.ibb.co/dWD5pny/7.webp",
-      "description": "Safety helmets or Hard Hats are designed to protect the head against falling objects and of the head, eyes, and neck from any untoward impacts, bumps, scrapes, and electrical exposure, etc."
+      "picture": "https://i.postimg.cc/8Cqt7R2v/8.png"
     },
     {
       "name": "Power Saw",
       "price": 66,
-      "picture": "https://i.ibb.co/2N0GzFF/8.webp",
-      "description": "A power saw is a portable mechanical machine used for both industrial and DIY projects. It is the type of power tool that comprises sturdy blades, chains, wire, set of teeth, etc."
+      "quantity": 1,
+      "picture": "https://i.postimg.cc/TwMJdRbq/10.png"
     }
   ]

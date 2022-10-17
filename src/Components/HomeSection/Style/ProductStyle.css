@@ -1,0 +1,32 @@
+
+.card:hover .cardBTM1{
+    z-index: 1;
+    position: relative;
+    display: none;
+}
+
+.cardBTM2{
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    transition: 1s;
+}
+
+.cardBTM2{
+    display: none;
+}
+
+.card:hover .cardBTM2{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    z-index: 2;
+    transition: 1s;
+}

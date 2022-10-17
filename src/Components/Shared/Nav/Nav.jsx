@@ -25,7 +25,7 @@ const Nav = () => {
   </>
   return (
     <div className='sticky top-0 z-50'>
-      <div class="navbar px-12 bg-yellow-400">
+      <div class="navbar lg:px-12  bg-yellow-400">
         <div class="navbar-start">
           <div class="dropdown">
             <label tabindex="0" class="btn btn-ghost lg:hidden">
@@ -35,8 +35,8 @@ const Nav = () => {
               {menu}
             </ul>
           </div>
-          <Link to='/' class="btn btn-ghost normal-case">
-            <span className='text-4xl'>P</span><sub className='text-xl'>OWERX</sub>
+          <Link to='/' class="btn btn-ghost normal-case logo">
+            <span className='lg:text-4xl sm:text-xl'>P</span><sub className='lg:text-xl sm:text-lg'>OWERX</sub>
           </Link>
         </div>
         <div class="navbar-center hidden lg:flex">
@@ -47,17 +47,17 @@ const Nav = () => {
         <div class="navbar-end">
           <ul className='menu menu-horizontal p-0'>
             <li className='b'>
-              <Link to='#' className='text-2xl mr-5 '>
+              <Link to='#' className='lg:text-2xl sm:text-xl lg:mr-5 sm:mr-2'>
                 <AiOutlineUser></AiOutlineUser>
               </Link>
             </li>
             <li className='b'>
-              <Link to='#' className='text-2xl mr-5'>
+              <Link to='#' className='lg:text-2xl sm:text-xl lg:mr-5 sm:mr-2'>
                 <BsHeart></BsHeart>
               </Link>
             </li>
             <li className='b'>
-              <Link to='/cart' className='text-2xl '>
+              <Link to='/cart' className='lg:text-2xl sm:text-xl'>
                 <BsHandbag></BsHandbag>
               </Link>
             </li>

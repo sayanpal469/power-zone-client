@@ -3,16 +3,18 @@ import Footer from '../../Shared/Footer/Footer';
 import Facilties from '../Facilties/Facilties';
 import Products from '../Products/Products';
 import Second from '../SecondPara/Second';
-import ThirdBanner from '../ThirdBanner/ThirdBanner';
+import FourthBanner from '../FourthBanner/FourthBanner';
 import TopBaner from '../TopBanner/TopBaner';
+import ThirdBanner from '../ThirdBanner/ThirdBanner';
 
 const Home = () => {
     return (
         <div>
             <Second/>
             <TopBaner/>
-            <Products/>
             <ThirdBanner/>
+            <Products/>
+            <FourthBanner/>
             <Facilties/>
             <Footer/>
         </div>

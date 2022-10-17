@@ -1,19 +1,53 @@
 import React from 'react';
+import './ThirdBanner.css'
 
 const ThirdBanner = () => {
     return (
-        <div className='mt-20 mb-10 w-[80%] grid lg:grid-cols-2 sm:grid-cols-1  lg:gap-40 mx-auto items-center'>
-            <div>
-                <img className='' src="https://i.ibb.co/cYyyB3p/Third.jpg" alt="" />
+        <div className='grid lg:grid-cols-6 md:grid-cols-3 sm:grid-cols-2 gap-5 mt-10 px-14'>
+            <div className='flex bRight items-center shadow py-3 max-w-lg hover:border-l-4 hover:border-l-yellow-500 transition'>
+                <img className='w-20' src="https://i.postimg.cc/cCbPNqMM/1.png" alt="" />
+                <div>
+                    <h3 className='text-lg font-semibold'>Whey Protein</h3>
+                    <p>6 products</p>
+                </div>
             </div>
-            <div>
-                <h1 className='uppercase text-7xl font-semibold text-gray-200 mb-10'>About Us</h1>
-                <p className='text-4xl font-bold text-warning mb-2 uppercase'>We are here to dream!</p>
-                <p className='text-4    xl font-bold mb-10 uppercase'> Our team is here surve you</p>
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Obcaecati aspernatur necessitatibus quam officiis! Explicabo tempora tenetur illo nihil atque magni excepturi velit temporibus officia maxime, nulla possimus nisi nesciunt. Eos beatae facilis at reiciendis omnis officia doloremque dolor dolorem vero, blanditiis repudiandae! Modi, laboriosam magnam placeat et deleniti hic eius.</p>
+            <div className='flex bRight items-center shadow py-3 max-w-lg hover:border-l-4 hover:border-l-yellow-500 transition'>
+                <img className='w-20' src="https://i.postimg.cc/cCbPNqMM/1.png" alt="" />
+                <div>
+                    <h3 className='text-lg font-semibold'>Whey Protein</h3>
+                    <p>6 products</p>
+                </div>
+            </div>
+            <div className='flex bRight items-center shadow py-3 max-w-lg hover:border-l-4 hover:border-l-yellow-500 transition'>
+                <img className='w-20' src="https://i.postimg.cc/cCbPNqMM/1.png" alt="" />
+                <div>
+                    <h3 className='text-lg font-semibold'>Whey Protein</h3>
+                    <p>6 products</p>
+                </div>
+            </div>
+            <div className='flex bRight items-center shadow py-3 max-w-lg hover:border-l-4 hover:border-l-yellow-500 transition'>
+                <img className='w-20' src="https://i.postimg.cc/cCbPNqMM/1.png" alt="" />
+                <div>
+                    <h3 className='text-lg font-semibold'>Whey Protein</h3>
+                    <p>6 products</p>
+                </div>
+            </div>
+            <div className='flex bRight items-center shadow py-3 max-w-lg hover:border-l-4 hover:border-l-yellow-500 transition'>
+                <img className='w-20' src="https://i.postimg.cc/cCbPNqMM/1.png" alt="" />
+                <div>
+                    <h3 className='text-lg font-semibold'>Whey Protein</h3>
+                    <p>6 products</p>
+                </div>
+            </div>
+            <div className='flex bRight items-center shadow py-3 max-w-lg hover:border-l-4 hover:border-l-yellow-500 transition'>
+                <img className='w-20' src="https://i.postimg.cc/cCbPNqMM/1.png" alt="" />
+                <div>
+                    <h3 className='text-lg font-semibold'>Whey Protein</h3>
+                    <p>6 products</p>
+                </div>
             </div>
         </div>
     );
 };
 
-export default ThirdBanner;
+export default ThirdBanner;  

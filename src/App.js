@@ -11,22 +11,26 @@ import Dashboard from './Components/Shared/Dashboard/Dashboard';
 import MyOrders from './Components/Shared/Dashboard/MyOrder/MyOrders';
 import MyProfile from './Components/Shared/Dashboard/MyProfile';
 import Nav from './Components/Shared/Nav/Nav';
+import NavBar from './Components/Shared/Nav/NavBar';
 
 function App() {
   return (
     <div>
-      <Nav/>
+      {/* <Nav/> */}
+      <NavBar>
       <Routes>
         <Route path='/' element={ <Home/> }></Route>
         <Route path='/home' element={ <Home/> }></Route>
-        <Route path='/purches/:productId' element={ 
+        {/* <Route path='/purches/:productId' element={ 
           <RequireAuth>
             <Purches/>
           </RequireAuth>
-         }></Route>
+         }></Route> */}
          <Route path='/buy/:productId' element={ <Buy/> }></Route>
 
-         <Route path='/cart' element={ <Cart/> }></Route>
+         <Route path='/cart' element={ <RequireAuth>
+            <Cart/>
+         </RequireAuth> }></Route>
 
          {/* <Route path='/dashBoard' element={ <RequireAuth><Dashboard></Dashboard></RequireAuth> }>
           <Route index element={ <MyProfile/> }></Route>
@@ -36,6 +40,8 @@ function App() {
         <Route path='/login' element={ <Login/> }></Route>
         <Route path='/signUp' element={ <SignUp/> }></Route>
       </Routes>
+      </NavBar>
+      
     </div>
   );
 }

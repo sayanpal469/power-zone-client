@@ -1,21 +1,23 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+// import { useParams } from 'react-router-dom';
 
 const useProductDetails = () => {
-    const { productId } = useParams()
-    const [item, setItem] = useState({})
+    // const { productId } = useParams()
+    const [products, setProducts] = useState([])
 
-    useEffect(() => {
-        const url = `http://localhost:5000/products/${productId}`
+    useEffect((id) => {
+        const url = `http://localhost:5000/products`
         fetch(url)
             .then(res => res.json())
             .then(data => {
-                setItem(data)
+                setProducts(data)
                 //console.log(data);
             })
     }, [])
 
-    return [item, setItem]
+    const productDetails = products.map(product => product)
+
+    return productDetails
 };
 
 export default useProductDetails;
