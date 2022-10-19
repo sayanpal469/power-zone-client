@@ -47,8 +47,8 @@ const Second = () => {
                 <p className='lg:text-lg font-semibold'>Free delivary worldwide</p>
             </div>
             <div className='flex items-center text-center'>
-                <HiOutlinePhoneMissedCall className='lg:text-4xl sm:text-2xl text-yellow-500'></HiOutlinePhoneMissedCall>
-                <p className='lg:text-lg lg:ml-5 sm:ml-5 font-semibold'>Ask our experts: <span className='text-red-600'>+917872358979</span></p>
+                <HiOutlinePhoneMissedCall className='lg:text-3xl sm:text-xl text-yellow-500'></HiOutlinePhoneMissedCall>
+                <p className='lg:text-lg font-semibold'>Ask our experts: <span className='text-red-600'>+917872358979</span></p>
             </div>
         </div>
     );

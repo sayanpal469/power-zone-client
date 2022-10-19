@@ -19,15 +19,20 @@ const Product = ({ product }) => {
     const { picture, price, _id } = product;
     const [itemDetails, setItemDetails] = useState({});
     const [goCart, setGocart] = useState(false)
+    const [cartItemsss, setCartItemsss] = useCart();
+    const [isAvailable, setIsAvailable] = useState([])
 
-    // useEffect( () => {
-    //     cartItems.find(cart => cart.product._id == _id)
-    //     setGocart(true)
-    // },[cartItems])
 
-    const addCart = () => {
+    useEffect(() => {
+        setIsAvailable(cartItemsss.map(pd => pd._id))
+        // setGocart(true)
+    }, [cartItemsss])
+    console.log(isAvailable)
+
+    const addCart = (id) => {
         const email = user?.email
-        const cartInfo = {email, product};
+        const cartInfo = { email, product };
+
 
         fetch(`http://localhost:5000/carts`, {
             method: 'POST',
@@ -36,17 +41,18 @@ const Product = ({ product }) => {
             },
             body: JSON.stringify(cartInfo),
         })
-        .then(res => res.json())
-        .then(data => {
-            console.log(data)
-            if(data.acknowledged == true) {
-                alert('Product added')
-                cartItems.find(cart => cart.product._id == _id)
-        setGocart(true)
-                // setGocart(true)
-                // navigate(`/cart`)
-            }
-        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+                if (data.acknowledged == true) {
+                    alert('Product added')
+                    setIsAvailable([...isAvailable, id])
+                    //         cartItems.find(cart => cart.product._id == _id)
+                    // setGocart(true)
+                    // setGocart(true)
+                    // navigate(`/cart`)
+                }
+            })
     }
 
     const getProductDetails = async (id) => {
@@ -54,7 +60,7 @@ const Product = ({ product }) => {
         //     .then(res => res.json())
         //     .then(data => {
         //         setItemDetails(data)
-                
+
         //     })
         //     console.log(itemDetails);
 
@@ -94,10 +100,13 @@ const Product = ({ product }) => {
                     <AiOutlineHeart className='text-white text-2xl ml-2 hover:text-red-600'></AiOutlineHeart>
                 </div>
                 <div>
-                    {goCart == true ? <span className='text-warning text-lg font-semibold'>Go to cart</span>
-                    : 
-                    <span className='text-warning text-lg font-semibold'>Add to cart</span>}
-                    <button onClick={addCart} className='btn hover:bg-warning hover:text-black hover:ml-2 rounded-none bg-black border-none text-2xl text-warning font-semibold'>+</button>
+                    {isAvailable.includes(_id) ? <span className='text-warning text-lg font-semibold'>Go to cart</span>
+
+                        : <div className="">
+                            <span className='text-warning text-lg font-semibold'>Add to cart</span>
+                            <button onClick={() => addCart(_id)} className='btn hover:bg-warning hover:text-black hover:ml-2 rounded-none bg-black border-none text-2xl text-warning font-semibold'>+</button>
+                        </div>}
+
                 </div>
             </div>
         </div>
