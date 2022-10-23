@@ -1,24 +1,7 @@
-/* .one{
-    background-image: url(../../../assets/s1.jpg);
-    background-size: cover;
-    height: 60vh;
-}
-
-.two{
-    background-image: url(../../../assets/workoutbg.jpg);
-    background-size: cover;
-    height: 60vh;
-}
-
-.three{
-    background-image: url(../../../assets/nutrationbg.jpg);
-    background-size: cover;
-    height: 60vh;
-} */
-
-@media only screen and (max-width: 425px){
+@media only screen and (max-width: 765px){
 	.sgrid{
         display: grid;
         grid-template-columns: repeat(2, 1fr);
+        padding-left: 25px;
     }
 }

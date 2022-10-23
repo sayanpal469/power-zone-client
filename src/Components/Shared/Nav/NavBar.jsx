@@ -1,5 +1,6 @@
 import { signOut } from 'firebase/auth';
 import React from 'react';
+import '../../HomeSection/Style/Nav.css'
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { Link } from 'react-router-dom';
 import auth from '../../../firebase.init';
@@ -8,7 +9,7 @@ import { AiOutlineUser } from 'react-icons/ai';
 import { BsHeart } from 'react-icons/bs';
 import { BsHandbag } from 'react-icons/bs';
 
-const NavBar = ({ children }) => {
+const NavBar = ({children}) => {
     const [user, loading, error] = useAuthState(auth);
 
     const logout = () => {
@@ -19,7 +20,7 @@ const NavBar = ({ children }) => {
         <li className='b'><Link to='/'>Home</Link></li>
         {/* {user && <li><Link to='/dashBoard'>Dashboard</Link></li>} */}
         <li className='b'><Link to='#'>About</Link></li>
-        <li className='b'><Link to='#'>Contact</Link></li>
+        <li className='b'><Link to='/checkOut'>Checkout</Link></li>
         <li className='b'>{user ? <Link to='/signUp' onClick={logout}>Log out</Link> : <Link to='/signUp'>Sign Up</Link>}</li>
     </>
     return (
@@ -43,18 +44,13 @@ const NavBar = ({ children }) => {
                                 {menu}
                             </ul>
                         </div>
+
                         {
                             user ? <div class="navbar-end">
                             <ul className='menu menu-horizontal p-0'>
                                 <li className='b'>
-                                    <Link to='#' className='dropdown dropdown-hover lg:text-2xl sm:text-xl lg:mr-5 sm:mr-2'>
-                                        <AiOutlineUser tabIndex={0}></AiOutlineUser>
-                                        <div className="">
-                                            <ul tabIndex={0} className="dropdown-content mt-5 menu p-2 shadow bg-base-100 rounded-box w-52">
-                                                <li><Link to='#'>My Profile</Link></li>
-                                                <li><Link to='#'>Orders</Link></li>
-                                            </ul>
-                                        </div>
+                                    <Link to='#' className='lg:text-2xl sm:text-xl lg:mr-5 sm:mr-2'>
+                                        <AiOutlineUser></AiOutlineUser>
                                     </Link>
                                 </li>
                                 <li className='b'>
@@ -67,11 +63,10 @@ const NavBar = ({ children }) => {
                                         <BsHandbag></BsHandbag>
                                     </Link>
                                 </li>
-                            </ul>
-
-                        </div>
-                        : ''
+                            </ul> 
+                        </div> : ''
                         }
+
                     </div>
                     {children}
                 </div>
